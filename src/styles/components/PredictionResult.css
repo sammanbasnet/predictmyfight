@@ -1,10 +1,14 @@
 .prediction-result {
   background: #1a1a1a;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 3rem;
   margin-top: 3rem;
-  border: 2px solid #d20a0a;
+  border: 2px solid rgba(210, 10, 10, 0.5);
   animation: slideIn 0.5s ease;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: visible;
 }
 
 @keyframes slideIn {
@@ -37,20 +41,26 @@
 }
 
 .probability-card {
-  background: #0a0a0a;
-  border-radius: 4px;
+  background: #1a1a1a;
+  border-radius: 12px;
   padding: 2rem;
   text-align: center;
-  border: 2px solid #333333;
+  border: 2px solid rgba(51, 51, 51, 0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: visible;
 }
 
 .probability-card:hover {
   border-color: #d20a0a;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(210, 10, 10, 0.3);
 }
 
 .prediction-photo {
@@ -67,13 +77,9 @@
 .probability-value {
   font-size: 3rem;
   font-weight: 900;
-  color: #d20a0a;
+  color: #ffffff;
   margin-bottom: 1rem;
-}
-
-.probability-card:nth-child(3) .probability-value {
-  color: #000000;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .probability-bar-container {
@@ -83,12 +89,20 @@
   border-radius: 10px;
   overflow: hidden;
   margin-top: 1rem;
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
 }
 
 .probability-bar {
   height: 100%;
   border-radius: 10px;
   transition: width 1s ease;
+  position: relative;
+  z-index: 11;
+  will-change: width;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .fighter1-bar {
