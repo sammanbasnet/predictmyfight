@@ -1,8 +1,9 @@
 .app-footer {
-  background: rgba(0, 0, 0, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 10, 0.95);
+  border-top: 2px solid rgba(255, 215, 0, 0.2);
   padding: 3rem 2rem 1.5rem;
   margin-top: 4rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .footer-content {
@@ -58,6 +59,10 @@
 
 .footer-links li a:hover {
   color: #ffd700;
+}
+
+.footer-links li a:visited {
+  color: #aaa;
 }
 
 .tech-badges {

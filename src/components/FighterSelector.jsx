@@ -1,14 +1,18 @@
 import { useState } from 'react'
 import '../styles/components/FighterSelector.css'
-import { SAMPLE_FIGHTERS } from '../data/fighters'
+import { UFC_FIGHTERS, WEIGHT_CLASSES } from '../data/fighters'
 
 function FighterSelector({ selectedFighter, onSelectFighter }) {
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedWeightClass, setSelectedWeightClass] = useState('All')
 
-  const filteredFighters = SAMPLE_FIGHTERS.filter(fighter =>
-    fighter.name.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  // Filter fighters by weight class and search term
+  const filteredFighters = UFC_FIGHTERS.filter(fighter => {
+    const matchesWeightClass = selectedWeightClass === 'All' || fighter.weightClass === selectedWeightClass
+    const matchesSearch = fighter.name.toLowerCase().includes(searchTerm.toLowerCase())
+    return matchesWeightClass && matchesSearch
+  })
 
   const handleSelect = (fighter) => {
     onSelectFighter(fighter)
@@ -25,7 +29,10 @@ function FighterSelector({ selectedFighter, onSelectFighter }) {
         {selectedFighter ? (
           <div className="selected-fighter">
             <span className="fighter-emoji">{selectedFighter.image}</span>
-            <span className="fighter-name">{selectedFighter.name}</span>
+            <div className="selected-fighter-info">
+              <span className="fighter-name">{selectedFighter.name}</span>
+              <span className="fighter-weight-class-small">{selectedFighter.weightClass}</span>
+            </div>
           </div>
         ) : (
           <div className="placeholder">Select a fighter...</div>
@@ -35,14 +42,30 @@ function FighterSelector({ selectedFighter, onSelectFighter }) {
 
       {isOpen && (
         <div className="dropdown-menu">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search fighters..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onClick={(e) => e.stopPropagation()}
-          />
+          <div className="filter-controls">
+            <select
+              className="weight-class-filter"
+              value={selectedWeightClass}
+              onChange={(e) => {
+                setSelectedWeightClass(e.target.value)
+                setSearchTerm('')
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <option value="All">All Weight Classes</option>
+              {WEIGHT_CLASSES.map(wc => (
+                <option key={wc} value={wc}>{wc}</option>
+              ))}
+            </select>
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search fighters..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
           <div className="fighter-list">
             {filteredFighters.length > 0 ? (
               filteredFighters.map((fighter) => (
@@ -52,7 +75,10 @@ function FighterSelector({ selectedFighter, onSelectFighter }) {
                   onClick={() => handleSelect(fighter)}
                 >
                   <span className="fighter-emoji">{fighter.image}</span>
-                  <span className="fighter-name">{fighter.name}</span>
+                  <div className="fighter-info">
+                    <span className="fighter-name">{fighter.name}</span>
+                    <span className="fighter-weight-class">{fighter.weightClass}</span>
+                  </div>
                   <span className="fighter-record">
                     {fighter.wins}-{fighter.losses}
                   </span>

@@ -1,0 +1,12 @@
+.about-page {
+  min-height: calc(100vh - 200px);
+  padding: 2rem;
+  width: 100%;
+}
+
+.about-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+

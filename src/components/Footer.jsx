@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../styles/components/Footer.css'
 
 /**
@@ -23,9 +24,8 @@ function Footer() {
         <div className="footer-section">
           <h4 className="footer-heading">Project</h4>
           <ul className="footer-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#methodology">Methodology</a></li>
-            <li><a href="#features">Features</a></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/">Home</Link></li>
           </ul>
         </div>
 
@@ -39,16 +39,6 @@ function Footer() {
                 rel="noopener noreferrer"
               >
                 GitHub Repository
-              </a>
-            </li>
-            <li>
-              <a href="/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer">
-                Architecture
-              </a>
-            </li>
-            <li>
-              <a href="/METHODOLOGY.md" target="_blank" rel="noopener noreferrer">
-                Methodology
               </a>
             </li>
           </ul>
