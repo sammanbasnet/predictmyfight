@@ -101,4 +101,3 @@ predictmyfight/
 ## License
 
 This project is part of an individual academic project.
-

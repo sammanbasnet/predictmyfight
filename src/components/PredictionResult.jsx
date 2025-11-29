@@ -1,6 +1,8 @@
 import '../styles/components/PredictionResult.css'
+import StatComparisonChart from './StatComparisonChart'
+import PredictionBreakdown from './PredictionBreakdown'
 
-function PredictionResult({ prediction }) {
+function PredictionResult({ prediction, fighter1, fighter2 }) {
   const fighter1Prob = parseFloat(prediction.fighter1.probability)
   const fighter2Prob = parseFloat(prediction.fighter2.probability)
 
@@ -41,6 +43,16 @@ function PredictionResult({ prediction }) {
           Confidence: {Math.max(fighter1Prob, fighter2Prob).toFixed(1)}%
         </div>
       </div>
+
+      {/* Stat Comparison Charts */}
+      <StatComparisonChart fighter1={fighter1} fighter2={fighter2} />
+
+      {/* Detailed Prediction Breakdown */}
+      <PredictionBreakdown 
+        prediction={prediction} 
+        fighter1={fighter1}
+        fighter2={fighter2}
+      />
     </div>
   )
 }

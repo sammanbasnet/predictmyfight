@@ -25,6 +25,15 @@
   font-size: 1.2rem;
   color: #cccccc;
   font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+.app-description {
+  font-size: 1rem;
+  color: #888;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .app-main {
@@ -113,6 +122,30 @@
 .predict-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.predict-button.loading {
+  position: relative;
+  color: transparent;
+}
+
+.loading-spinner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 @media (max-width: 1024px) {

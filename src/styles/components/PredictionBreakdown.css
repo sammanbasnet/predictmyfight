@@ -1,0 +1,235 @@
+.prediction-breakdown {
+  background: rgba(255, 215, 0, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.breakdown-title {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.confidence-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.confidence-label {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.confidence-value {
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.confidence-high {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  color: #000;
+}
+
+.confidence-medium {
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+  color: #000;
+}
+
+.confidence-low {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #000;
+}
+
+.confidence-detail {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.breakdown-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.advantages-section {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.advantages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.advantage-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  border-left: 4px solid;
+  transition: all 0.3s ease;
+}
+
+.advantage-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(5px);
+}
+
+.winner-advantage {
+  border-left-color: #ffd700;
+}
+
+.loser-advantage {
+  border-left-color: #ff6b6b;
+  opacity: 0.8;
+}
+
+.advantage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.advantage-category {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.advantage-value {
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.loser-advantage .advantage-value {
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+}
+
+.advantage-comparison {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: #aaa;
+  flex-wrap: wrap;
+}
+
+.comparison-fighter {
+  color: #cccccc;
+}
+
+.comparison-vs {
+  color: #888;
+  font-style: italic;
+}
+
+.score-breakdown {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.score-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.score-fighter {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.score-bar-container {
+  width: 100%;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.score-bar {
+  height: 100%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  transition: width 1s ease;
+  min-width: 80px;
+}
+
+.fighter1-bar {
+  background: linear-gradient(90deg, #ffd700 0%, #ffaa00 100%);
+}
+
+.fighter2-bar {
+  background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+}
+
+.score-value {
+  color: #000;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .prediction-breakdown {
+    padding: 1.5rem;
+  }
+
+  .breakdown-title {
+    font-size: 1.2rem;
+  }
+
+  .confidence-badge {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .advantage-comparison {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
