@@ -1,0 +1,180 @@
+.fighter-comparison-table {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-title {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+.comparison-table thead {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.comparison-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: #ffffff;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+  font-size: 0.95rem;
+}
+
+.category-column {
+  width: 35%;
+  color: #ffd700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.fighter-column {
+  width: 32.5%;
+  text-align: center;
+}
+
+.fighter-column.advantage {
+  background: rgba(255, 215, 0, 0.15);
+}
+
+.comparison-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.comparison-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.comparison-table tbody tr.row-fighter1 {
+  background: rgba(255, 215, 0, 0.03);
+}
+
+.comparison-table tbody tr.row-fighter2 {
+  background: rgba(255, 107, 107, 0.03);
+}
+
+.comparison-table td {
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.category-cell {
+  font-weight: 600;
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+
+.value-cell {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+}
+
+.value-cell.winner {
+  color: #ffd700;
+  font-weight: 700;
+}
+
+.row-fighter2 .value-cell.winner {
+  color: #ff6b6b;
+}
+
+.advantage-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: #ffd700;
+  font-size: 1rem;
+  font-weight: 700;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.row-fighter2 .advantage-badge {
+  color: #ff6b6b;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+.table-legend {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+.legend-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.legend-indicator.winner {
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+}
+
+@media (max-width: 768px) {
+  .fighter-comparison-table {
+    padding: 1.5rem;
+  }
+
+  .table-title {
+    font-size: 1.2rem;
+  }
+
+  .comparison-table {
+    font-size: 0.85rem;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .category-cell {
+    font-size: 0.8rem;
+  }
+
+  .value-cell {
+    font-size: 0.9rem;
+  }
+}
+

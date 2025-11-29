@@ -10,7 +10,7 @@ function PredictionBreakdown({ prediction, fighter1, fighter2 }) {
       
       <div className="confidence-badge">
         <span className="confidence-label">Confidence Level:</span>
-        <span className={`confidence-value confidence-${prediction.confidenceLevel.toLowerCase()}`}>
+        <span className={`confidence-value confidence-${prediction.confidenceLevel.toLowerCase().replace('-', '')}`}>
           {prediction.confidenceLevel}
         </span>
         <span className="confidence-detail">

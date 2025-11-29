@@ -46,13 +46,23 @@
   color: #000;
 }
 
+.confidence-mediumhigh {
+  background: linear-gradient(135deg, #86efac 0%, #4ade80 100%);
+  color: #000;
+}
+
 .confidence-medium {
   background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
   color: #000;
 }
 
-.confidence-low {
+.confidence-lowmedium {
   background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #000;
+}
+
+.confidence-low {
+  background: linear-gradient(135deg, #fca5a5 0%, #f87171 100%);
   color: #000;
 }
 

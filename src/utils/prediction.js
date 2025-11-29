@@ -1,24 +1,57 @@
 /**
- * Calculate fighter score based on weighted statistics
+ * Calculate fighter score based on weighted statistics with improved accuracy
  * @param {Object} fighter - Fighter object with stats
  * @returns {number} - Calculated score
  */
 export const calculateFighterScore = (fighter) => {
-  // Weighted scoring system
-  const winRate = (fighter.wins / (fighter.wins + fighter.losses)) * 100
-  const koRate = (fighter.knockouts / fighter.wins) * 100 || 0
-  const submissionRate = (fighter.submissions / fighter.wins) * 100 || 0
-  const avgStrikingAccuracy = fighter.strikingAccuracy || 0
-  const avgTakedownAccuracy = fighter.takedownAccuracy || 0
-
-  // Weighted formula
-  return (
-    winRate * 0.3 +
-    koRate * 0.2 +
-    submissionRate * 0.15 +
-    avgStrikingAccuracy * 0.2 +
-    avgTakedownAccuracy * 0.15
+  const totalFights = fighter.wins + fighter.losses
+  
+  // Win rate calculation with experience adjustment
+  // Penalize fighters with very few fights to avoid overvaluing small sample sizes
+  let winRate = (fighter.wins / totalFights) * 100
+  
+  // Experience factor: More fights = more reliable data
+  // Apply a reliability multiplier based on total fights
+  const experienceFactor = Math.min(1, totalFights / 20) // Max reliability at 20+ fights
+  const reliabilityBonus = experienceFactor * 5 // Up to 5 point bonus for experience
+  
+  // Penalize losses more heavily - each loss reduces score
+  const lossPenalty = (fighter.losses / totalFights) * 15 // Up to 15 point penalty
+  
+  // Finishing ability (KO + Submissions) - more important than just win rate
+  const totalFinishes = fighter.knockouts + fighter.submissions
+  const finishRate = fighter.wins > 0 ? (totalFinishes / fighter.wins) * 100 : 0
+  
+  // KO rate - finishing ability is crucial
+  const koRate = fighter.wins > 0 ? (fighter.knockouts / fighter.wins) * 100 : 0
+  
+  // Submission rate - grappling proficiency
+  const submissionRate = fighter.wins > 0 ? (fighter.submissions / fighter.wins) * 100 : 0
+  
+  // Striking accuracy - normalized
+  const strikingAccuracy = fighter.strikingAccuracy || 0
+  
+  // Takedown accuracy - normalized
+  const takedownAccuracy = fighter.takedownAccuracy || 0
+  
+  // Undefeated bonus - being undefeated is significant
+  const undefeatedBonus = fighter.losses === 0 && fighter.wins >= 5 ? 8 : 0
+  
+  // Improved weighted formula with better balance
+  const baseScore = (
+    winRate * 0.25 +           // Win rate (reduced from 0.3)
+    finishRate * 0.20 +         // Overall finishing ability (new)
+    koRate * 0.15 +             // KO rate (reduced from 0.2)
+    submissionRate * 0.10 +      // Submission rate (reduced from 0.15)
+    strikingAccuracy * 0.15 +    // Striking accuracy (reduced from 0.2)
+    takedownAccuracy * 0.10      // Takedown accuracy (reduced from 0.15)
   )
+  
+  // Apply bonuses and penalties
+  const adjustedScore = baseScore + reliabilityBonus + undefeatedBonus - lossPenalty
+  
+  // Ensure score is positive and reasonable
+  return Math.max(0, Math.min(100, adjustedScore))
 }
 
 /**
@@ -165,23 +198,64 @@ const getAdvantages = (fighter1, fighter2) => {
  * @param {Object} fighter2 - Second fighter object
  * @returns {Object} - Prediction result with probabilities, winner, and detailed breakdown
  */
+/**
+ * Predict fight outcome between two fighters with improved accuracy
+ * @param {Object} fighter1 - First fighter object
+ * @param {Object} fighter2 - Second fighter object
+ * @returns {Object} - Prediction result with probabilities, winner, and detailed breakdown
+ */
 export const predictFight = (fighter1, fighter2) => {
   const fighter1Score = calculateFighterScore(fighter1)
   const fighter2Score = calculateFighterScore(fighter2)
 
+  // Use a more sophisticated probability calculation
+  // Add a base probability to prevent extreme predictions
+  const scoreDifference = Math.abs(fighter1Score - fighter2Score)
   const totalScore = fighter1Score + fighter2Score
-  const fighter1WinProbability = (fighter1Score / totalScore) * 100
-  const fighter2WinProbability = (fighter2Score / totalScore) * 100
+  
+  // Base probability calculation
+  let fighter1WinProbability = (fighter1Score / totalScore) * 100
+  let fighter2WinProbability = (fighter2Score / totalScore) * 100
+  
+  // Apply adjustment for close fights - less extreme predictions
+  // If scores are very close, make prediction less confident
+  if (scoreDifference < 5) {
+    // Close fight - pull probabilities toward 50/50
+    const adjustment = (5 - scoreDifference) * 2
+    if (fighter1Score > fighter2Score) {
+      fighter1WinProbability = Math.min(60, fighter1WinProbability + adjustment)
+      fighter2WinProbability = 100 - fighter1WinProbability
+    } else {
+      fighter2WinProbability = Math.min(60, fighter2WinProbability + adjustment)
+      fighter1WinProbability = 100 - fighter2WinProbability
+    }
+  }
+  
+  // Ensure probabilities sum to 100
+  const totalProb = fighter1WinProbability + fighter2WinProbability
+  fighter1WinProbability = (fighter1WinProbability / totalProb) * 100
+  fighter2WinProbability = (fighter2WinProbability / totalProb) * 100
 
   const breakdown1 = calculateStatBreakdown(fighter1)
   const breakdown2 = calculateStatBreakdown(fighter2)
   const advantages = getAdvantages(fighter1, fighter2)
 
-  // Determine confidence level
+  // Improved confidence level determination
   const probabilityDiff = Math.abs(fighter1WinProbability - fighter2WinProbability)
   let confidenceLevel = 'Medium'
-  if (probabilityDiff > 20) confidenceLevel = 'High'
-  else if (probabilityDiff < 10) confidenceLevel = 'Low'
+  
+  // More nuanced confidence levels
+  if (probabilityDiff > 25) {
+    confidenceLevel = 'High'
+  } else if (probabilityDiff > 15) {
+    confidenceLevel = 'Medium-High'
+  } else if (probabilityDiff > 8) {
+    confidenceLevel = 'Medium'
+  } else if (probabilityDiff > 3) {
+    confidenceLevel = 'Low-Medium'
+  } else {
+    confidenceLevel = 'Low'
+  }
 
   return {
     fighter1: {
