@@ -1,18 +1,19 @@
 .stat-comparison-chart {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
+  background: #1a1a1a;
+  border-radius: 4px;
   padding: 2rem;
   margin-top: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid #333333;
 }
 
 .chart-title {
   font-size: 1.5rem;
-  color: #ffd700;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-weight: 700;
 }
 
 .charts-container {
@@ -22,10 +23,10 @@
 }
 
 .chart-wrapper {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  background: #0a0a0a;
+  border-radius: 4px;
   padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #333333;
 }
 
 .chart-subtitle {

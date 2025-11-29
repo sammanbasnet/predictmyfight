@@ -1,12 +1,11 @@
 .navbar {
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid rgba(255, 215, 0, 0.2);
-  padding: 0.75rem 2rem;
+  background: #000000;
+  border-bottom: 3px solid #d20a0a;
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-container {
@@ -61,10 +60,7 @@
 .logo-text {
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
   font-size: 1.5rem;
   font-weight: 700;
   white-space: nowrap;
@@ -94,14 +90,14 @@
   left: 50%;
   transform: translateX(-50%);
   width: 0;
-  height: 2px;
-  background: #ffd700;
+  height: 3px;
+  background: #d20a0a;
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #ffd700;
-  background: rgba(255, 215, 0, 0.1);
+  color: #ffffff;
+  background: rgba(210, 10, 10, 0.1);
 }
 
 .nav-link:hover::after {

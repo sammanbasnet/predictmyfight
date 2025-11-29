@@ -21,8 +21,7 @@ export const UFC_FIGHTERS = [
     knockouts: 10,
     submissions: 6,
     strikingAccuracy: 58,
-    takedownAccuracy: 34,
-    image: '🥊'
+    takedownAccuracy: 34
   },
   {
     id: 2,
@@ -71,8 +70,7 @@ export const UFC_FIGHTERS = [
     knockouts: 7,
     submissions: 0,
     strikingAccuracy: 61,
-    takedownAccuracy: 0,
-    image: '🥋'
+    takedownAccuracy: 0
   },
   {
     id: 6,
@@ -121,8 +119,7 @@ export const UFC_FIGHTERS = [
     knockouts: 16,
     submissions: 0,
     strikingAccuracy: 50,
-    takedownAccuracy: 80,
-    image: '👊'
+    takedownAccuracy: 80
   },
   {
     id: 10,

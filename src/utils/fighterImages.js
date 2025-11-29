@@ -1,13 +1,6 @@
-/**
- * Get fighter image URL from external source
- * Uses actual fighter photos from UFC with CORS proxy
- * 
- * @param {string} fighterName - Fighter's full name
- * @returns {string} - Fighter image URL
- */
-export const getFighterImageUrl = (fighterName) => {
-  // Map of fighter names to their UFC image URLs
-  const fighterImageMap = {
+// Map of fighter names to their image URLs from various sources
+// Note: UFC CDN images return 403, so we'll use proxy for all of them
+const fighterImageMap = {
     'Jon Jones': 'https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2023-07/JONES_JON_L_07-29-23.png',
     'Tom Aspinall': 'https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2023-11/ASPINALL_TOM_L_11-11-23.png',
     'Curtis Blaydes': 'https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2023-07/BLAYDES_CURTIS_L_07-22-23.png',
@@ -56,18 +49,47 @@ export const getFighterImageUrl = (fighterName) => {
     'Amir Albazi': 'https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2023-06/ALBAZI_AMIR_L_06-03-23.png',
     'Kai Kara-France': 'https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2023-09/KARA-FRANCE_KAI_L_09-09-23.png',
     'Manel Kape': 'https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2023-09/KAPE_MANEL_L_09-09-23.png'
-  }
+}
 
+/**
+ * Get direct fighter image URL (without proxy)
+ * @param {string} fighterName - Fighter's full name
+ * @returns {string|null} - Direct fighter image URL or null
+ */
+export const getDirectFighterImageUrl = (fighterName) => {
+  return fighterImageMap[fighterName] || null
+}
+
+/**
+ * Get fighter image URL with multiple fallback strategies
+ * Tries various public image sources that allow cross-origin access
+ * 
+ * @param {string} fighterName - Fighter's full name
+ * @param {number} attempt - Which attempt (0: Unsplash, 1: proxy, 2: alternative proxy, 3: DiceBear)
+ * @returns {string} - Fighter image URL
+ */
+export const getFighterImageUrl = (fighterName, attempt = 0) => {
   if (fighterImageMap[fighterName]) {
-    // Use CORS proxy to bypass restrictions and get actual UFC photos
     const originalUrl = fighterImageMap[fighterName]
-    // Using corsproxy.io as a reliable CORS proxy for images
-    return `https://corsproxy.io/?${encodeURIComponent(originalUrl)}`
+    
+    if (attempt === 0) {
+      // Try using a different proxy service - CORS Anywhere alternative
+      return `https://api.allorigins.win/raw?url=${encodeURIComponent(originalUrl)}`
+    } else if (attempt === 1) {
+      // Try another proxy format
+      return `https://cors-anywhere.herokuapp.com/${originalUrl}`
+    } else if (attempt === 2) {
+      // Try proxy.cors.sh
+      return `https://proxy.cors.sh/${originalUrl}`
+    } else if (attempt === 3) {
+      // Try images.weserv.nl without webp conversion
+      return `https://images.weserv.nl/?url=${encodeURIComponent(originalUrl)}`
+    }
   }
   
-  // Fallback to avatar service if fighter not found
+  // Final fallback: DiceBear avatar (always works)
   const encodedName = encodeURIComponent(fighterName)
-  return `https://ui-avatars.com/api/?name=${encodedName}&size=200&background=0a0a0a&color=ffd700&bold=true&font-size=0.4&length=2&uppercase=true`
+  return `https://api.dicebear.com/7.x/initials/svg?seed=${encodedName}&backgroundColor=0a0a0a&textColor=ffd700&fontSize=40&fontWeight=700&radius=50`
 }
 
 /**

@@ -2,13 +2,25 @@
   position: relative;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 170, 0, 0.15) 100%);
-  border: 3px solid rgba(255, 215, 0, 0.4);
+  background: #1a1a1a;
+  border: 3px solid #d20a0a;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(210, 10, 10, 0.3);
+}
+
+.fighter-photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fighter-photo-image[src$=".svg"] {
+  object-fit: contain;
+  padding: 10%;
 }
 
 .fighter-photo-initials {
@@ -17,10 +29,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffd700;
+  color: #ffffff;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* Size variants */
@@ -70,8 +85,9 @@
 
 /* Hover effects */
 .fighter-photo:hover {
-  border-color: rgba(255, 215, 0, 0.6);
+  border-color: #ffffff;
   transform: scale(1.05);
   transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(210, 10, 10, 0.5);
 }
 

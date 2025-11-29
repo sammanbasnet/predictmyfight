@@ -1,18 +1,19 @@
 .prediction-breakdown {
-  background: rgba(255, 215, 0, 0.05);
-  border-radius: 15px;
+  background: #1a1a1a;
+  border-radius: 4px;
   padding: 2rem;
   margin-top: 2rem;
-  border: 2px solid rgba(255, 215, 0, 0.2);
+  border: 2px solid #333333;
 }
 
 .breakdown-title {
   font-size: 1.5rem;
-  color: #ffd700;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-weight: 700;
 }
 
 .confidence-badge {
@@ -42,28 +43,30 @@
 }
 
 .confidence-high {
-  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-  color: #000;
+  background: linear-gradient(135deg, #d20a0a 0%, #ff0000 100%);
+  color: #ffffff;
 }
 
 .confidence-mediumhigh {
-  background: linear-gradient(135deg, #86efac 0%, #4ade80 100%);
-  color: #000;
+  background: linear-gradient(135deg, #d20a0a 0%, #ff3333 100%);
+  color: #ffffff;
 }
 
 .confidence-medium {
-  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
-  color: #000;
+  background: #d20a0a;
+  color: #ffffff;
 }
 
 .confidence-lowmedium {
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-  color: #000;
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #d20a0a;
 }
 
 .confidence-low {
-  background: linear-gradient(135deg, #fca5a5 0%, #f87171 100%);
-  color: #000;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  border: 2px solid rgba(210, 10, 10, 0.5);
 }
 
 .confidence-detail {
@@ -86,9 +89,10 @@
 
 .section-title {
   font-size: 1.2rem;
-  color: #ffd700;
+  color: #d20a0a;
   margin-bottom: 1rem;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .advantages-list {
@@ -111,12 +115,12 @@
 }
 
 .winner-advantage {
-  border-left-color: #ffd700;
+  border-left-color: #d20a0a;
 }
 
 .loser-advantage {
-  border-left-color: #ff6b6b;
-  opacity: 0.8;
+  border-left-color: #ffffff;
+  opacity: 0.9;
 }
 
 .advantage-header {
@@ -133,17 +137,17 @@
 }
 
 .advantage-value {
-  background: rgba(255, 215, 0, 0.2);
-  color: #ffd700;
+  background: rgba(210, 10, 10, 0.3);
+  color: #ffffff;
   padding: 0.25rem 0.75rem;
-  border-radius: 15px;
+  border-radius: 4px;
   font-weight: 700;
   font-size: 0.9rem;
 }
 
 .loser-advantage .advantage-value {
-  background: rgba(255, 107, 107, 0.2);
-  color: #ff6b6b;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }
 
 .advantage-comparison {
@@ -165,10 +169,10 @@
 }
 
 .score-breakdown {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  background: #0a0a0a;
+  border-radius: 4px;
   padding: 1.5rem;
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  border: 1px solid #d20a0a;
 }
 
 .score-items {
@@ -210,17 +214,21 @@
 }
 
 .fighter1-bar {
-  background: linear-gradient(90deg, #ffd700 0%, #ffaa00 100%);
+  background: #d20a0a;
 }
 
 .fighter2-bar {
-  background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+  background: #ffffff;
 }
 
 .score-value {
-  color: #000;
+  color: #ffffff;
   font-weight: 700;
   font-size: 0.85rem;
+}
+
+.fighter2-bar .score-value {
+  color: #000000;
 }
 
 @media (max-width: 768px) {

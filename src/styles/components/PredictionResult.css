@@ -1,10 +1,9 @@
 .prediction-result {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 170, 0, 0.1) 100%);
-  border-radius: 20px;
+  background: #1a1a1a;
+  border-radius: 8px;
   padding: 3rem;
   margin-top: 3rem;
-  border: 2px solid rgba(255, 215, 0, 0.3);
-  backdrop-filter: blur(10px);
+  border: 2px solid #d20a0a;
   animation: slideIn 0.5s ease;
 }
 
@@ -22,10 +21,11 @@
 .prediction-title {
   text-align: center;
   font-size: 2rem;
-  color: #ffd700;
+  color: #ffffff;
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-weight: 700;
 }
 
 .prediction-content {
@@ -37,15 +37,20 @@
 }
 
 .probability-card {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
+  background: #0a0a0a;
+  border-radius: 4px;
   padding: 2rem;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid #333333;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.probability-card:hover {
+  border-color: #d20a0a;
 }
 
 .prediction-photo {
@@ -62,9 +67,13 @@
 .probability-value {
   font-size: 3rem;
   font-weight: 900;
-  color: #ffd700;
+  color: #d20a0a;
   margin-bottom: 1rem;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.probability-card:nth-child(3) .probability-value {
+  color: #000000;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .probability-bar-container {
@@ -80,30 +89,31 @@
   height: 100%;
   border-radius: 10px;
   transition: width 1s ease;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .fighter1-bar {
-  background: linear-gradient(90deg, #ffd700 0%, #ffaa00 100%);
+  background: #d20a0a;
 }
 
 .fighter2-bar {
-  background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+  background: #ffffff;
 }
 
 .vs-divider-small {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  color: #ffffff;
+  background: #d20a0a;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
 }
 
 .winner-announcement {
   text-align: center;
   padding: 2rem;
-  background: rgba(255, 215, 0, 0.1);
-  border-radius: 15px;
-  border: 2px solid rgba(255, 215, 0, 0.5);
+  background: #0a0a0a;
+  border-radius: 4px;
+  border: 3px solid #d20a0a;
   margin-top: 2rem;
 }
 
@@ -118,9 +128,8 @@
 .winner-name {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #ffd700;
+  color: #d20a0a;
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
   animation: pulse 2s ease-in-out infinite;
 }
 

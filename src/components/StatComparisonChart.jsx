@@ -81,15 +81,15 @@ function StatComparisonChart({ fighter1, fighter2 }) {
               <Radar
                 name={fighter1.name}
                 dataKey="fighter1"
-                stroke="#ffd700"
-                fill="#ffd700"
+                stroke="#d20a0a"
+                fill="#d20a0a"
                 fillOpacity={0.6}
               />
               <Radar
                 name={fighter2.name}
                 dataKey="fighter2"
-                stroke="#ff6b6b"
-                fill="#ff6b6b"
+                stroke="#ffffff"
+                fill="#ffffff"
                 fillOpacity={0.6}
               />
               <Legend 
@@ -99,7 +99,7 @@ function StatComparisonChart({ fighter1, fighter2 }) {
               <Tooltip 
                 contentStyle={{ 
                   backgroundColor: 'rgba(0, 0, 0, 0.8)', 
-                  border: '1px solid #ffd700',
+                  border: '1px solid #d20a0a',
                   borderRadius: '8px',
                   color: '#ffffff'
                 }}
@@ -128,7 +128,7 @@ function StatComparisonChart({ fighter1, fighter2 }) {
               <Tooltip 
                 contentStyle={{ 
                   backgroundColor: 'rgba(0, 0, 0, 0.8)', 
-                  border: '1px solid #ffd700',
+                  border: '1px solid #d20a0a',
                   borderRadius: '8px',
                   color: '#ffffff'
                 }}
@@ -138,12 +138,12 @@ function StatComparisonChart({ fighter1, fighter2 }) {
               />
               <Bar 
                 dataKey={fighter1.name} 
-                fill="#ffd700" 
+                fill="#d20a0a" 
                 radius={[8, 8, 0, 0]}
               />
               <Bar 
                 dataKey={fighter2.name} 
-                fill="#ff6b6b" 
+                fill="#ffffff" 
                 radius={[8, 8, 0, 0]}
               />
             </BarChart>

@@ -1,18 +1,19 @@
 .fighter-comparison-table {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
+  background: #1a1a1a;
+  border-radius: 4px;
   padding: 2rem;
   margin-top: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid #333333;
 }
 
 .table-title {
   font-size: 1.5rem;
-  color: #ffd700;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-weight: 700;
 }
 
 .table-container {
@@ -28,7 +29,7 @@
 }
 
 .comparison-table thead {
-  background: rgba(255, 215, 0, 0.1);
+  background: #0a0a0a;
 }
 
 .comparison-table th {
@@ -36,13 +37,13 @@
   text-align: left;
   font-weight: 700;
   color: #ffffff;
-  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+  border-bottom: 2px solid #d20a0a;
   font-size: 0.95rem;
 }
 
 .category-column {
   width: 35%;
-  color: #ffd700;
+  color: #d20a0a;
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
@@ -54,7 +55,7 @@
 }
 
 .fighter-column.advantage {
-  background: rgba(255, 215, 0, 0.15);
+  background: rgba(210, 10, 10, 0.2);
 }
 
 .comparison-table tbody tr {
@@ -67,11 +68,11 @@
 }
 
 .comparison-table tbody tr.row-fighter1 {
-  background: rgba(255, 215, 0, 0.03);
+  background: rgba(210, 10, 10, 0.05);
 }
 
 .comparison-table tbody tr.row-fighter2 {
-  background: rgba(255, 107, 107, 0.03);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .comparison-table td {
@@ -93,25 +94,25 @@
 }
 
 .value-cell.winner {
-  color: #ffd700;
+  color: #d20a0a;
   font-weight: 700;
 }
 
 .row-fighter2 .value-cell.winner {
-  color: #ff6b6b;
+  color: #ffffff;
 }
 
 .advantage-badge {
   display: inline-block;
   margin-left: 0.5rem;
-  color: #ffd700;
+  color: #d20a0a;
   font-size: 1rem;
   font-weight: 700;
   animation: pulse 2s ease-in-out infinite;
 }
 
 .row-fighter2 .advantage-badge {
-  color: #ff6b6b;
+  color: #ffffff;
 }
 
 @keyframes pulse {
@@ -148,7 +149,7 @@
 }
 
 .legend-indicator.winner {
-  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+  background: #d20a0a;
 }
 
 @media (max-width: 768px) {
