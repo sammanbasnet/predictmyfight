@@ -1,0 +1,136 @@
+.fighter-selector {
+  position: relative;
+  width: 100%;
+}
+
+.selector-trigger {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  min-height: 60px;
+}
+
+.selector-trigger:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.selected-fighter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fighter-emoji {
+  font-size: 1.5rem;
+}
+
+.fighter-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+.dropdown-arrow {
+  color: #ffd700;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.98);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  z-index: 1000;
+  max-height: 400px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+.search-input:focus {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.fighter-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.fighter-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fighter-option:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.fighter-option:last-child {
+  border-bottom: none;
+}
+
+.fighter-record {
+  margin-left: auto;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.no-results {
+  padding: 2rem;
+  text-align: center;
+  color: #888;
+}
+
+/* Scrollbar styling */
+.fighter-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.fighter-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fighter-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.3);
+  border-radius: 4px;
+}
+
+.fighter-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.5);
+}
+
