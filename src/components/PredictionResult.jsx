@@ -2,6 +2,7 @@ import '../styles/components/PredictionResult.css'
 import StatComparisonChart from './StatComparisonChart'
 import PredictionBreakdown from './PredictionBreakdown'
 import FighterComparisonTable from './FighterComparisonTable'
+import FighterPhoto from './FighterPhoto'
 
 function PredictionResult({ prediction, fighter1, fighter2 }) {
   const fighter1Prob = parseFloat(prediction.fighter1.probability)
@@ -13,6 +14,7 @@ function PredictionResult({ prediction, fighter1, fighter2 }) {
       
       <div className="prediction-content">
         <div className="probability-card">
+          <FighterPhoto fighterName={prediction.fighter1.name} size="xlarge" className="prediction-photo" />
           <div className="fighter-name-large">{prediction.fighter1.name}</div>
           <div className="probability-value">{fighter1Prob}%</div>
           <div className="probability-bar-container">
@@ -26,6 +28,7 @@ function PredictionResult({ prediction, fighter1, fighter2 }) {
         <div className="vs-divider-small">VS</div>
 
         <div className="probability-card">
+          <FighterPhoto fighterName={prediction.fighter2.name} size="xlarge" className="prediction-photo" />
           <div className="fighter-name-large">{prediction.fighter2.name}</div>
           <div className="probability-value">{fighter2Prob}%</div>
           <div className="probability-bar-container">

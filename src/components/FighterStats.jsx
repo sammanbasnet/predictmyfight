@@ -1,4 +1,5 @@
 import '../styles/components/FighterStats.css'
+import FighterPhoto from './FighterPhoto'
 
 function FighterStats({ fighter }) {
   const winRate = ((fighter.wins / (fighter.wins + fighter.losses)) * 100).toFixed(1)
@@ -8,7 +9,7 @@ function FighterStats({ fighter }) {
   return (
     <div className="fighter-stats">
       <div className="stats-header">
-        <span className="fighter-emoji-large">{fighter.image}</span>
+        <FighterPhoto fighterName={fighter.name} size="large" />
         <h3>{fighter.name}</h3>
       </div>
 

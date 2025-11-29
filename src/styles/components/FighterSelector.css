@@ -28,6 +28,10 @@
   width: 100%;
 }
 
+.selected-fighter .fighter-photo {
+  flex-shrink: 0;
+}
+
 .selected-fighter-info {
   display: flex;
   flex-direction: column;
@@ -145,6 +149,10 @@
   cursor: pointer;
   transition: all 0.2s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fighter-option .fighter-photo {
+  flex-shrink: 0;
 }
 
 .fighter-info {

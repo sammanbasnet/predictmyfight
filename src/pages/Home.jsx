@@ -93,7 +93,18 @@ function Home() {
       />
 
       <header className="app-header">
-        <h1 className="app-title">PredictMyFight</h1>
+        <div className="header-logo-container">
+          <img 
+            src="/logo.png" 
+            alt="PredictMyFight Logo" 
+            className="header-logo"
+            onError={(e) => {
+              // Fallback to text if image doesn't load
+              e.target.style.display = 'none'
+            }}
+          />
+        </div>
+        <h1 className="app-title" style={{ display: 'none' }}>PredictMyFight</h1>
         <p className="app-subtitle">
           Machine Learning-Based Prediction System for MMA Fight Outcomes
         </p>

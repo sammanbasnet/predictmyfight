@@ -7,14 +7,10 @@
 .stats-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid rgba(255, 215, 0, 0.3);
-}
-
-.fighter-emoji-large {
-  font-size: 2.5rem;
 }
 
 .stats-header h3 {

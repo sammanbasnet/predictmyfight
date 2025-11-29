@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../styles/components/FighterSelector.css'
 import { UFC_FIGHTERS, WEIGHT_CLASSES } from '../data/fighters'
+import FighterPhoto from './FighterPhoto'
 
 function FighterSelector({ selectedFighter, onSelectFighter }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,7 +29,7 @@ function FighterSelector({ selectedFighter, onSelectFighter }) {
       >
         {selectedFighter ? (
           <div className="selected-fighter">
-            <span className="fighter-emoji">{selectedFighter.image}</span>
+            <FighterPhoto fighterName={selectedFighter.name} size="small" />
             <div className="selected-fighter-info">
               <span className="fighter-name">{selectedFighter.name}</span>
               <span className="fighter-weight-class-small">{selectedFighter.weightClass}</span>
@@ -74,7 +75,7 @@ function FighterSelector({ selectedFighter, onSelectFighter }) {
                   className="fighter-option"
                   onClick={() => handleSelect(fighter)}
                 >
-                  <span className="fighter-emoji">{fighter.image}</span>
+                  <FighterPhoto fighterName={fighter.name} size="small" />
                   <div className="fighter-info">
                     <span className="fighter-name">{fighter.name}</span>
                     <span className="fighter-weight-class">{fighter.weightClass}</span>

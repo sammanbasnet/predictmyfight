@@ -2,7 +2,7 @@
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 2px solid rgba(255, 215, 0, 0.2);
-  padding: 1.25rem 2rem;
+  padding: 0.75rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -29,8 +29,28 @@
 }
 
 .navbar-logo:hover {
-  color: #ffd700;
   transform: translateX(5px);
+}
+
+.logo-image {
+  height: 100px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+  display: block;
+}
+
+.navbar-logo:hover .logo-image {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+  transform: scale(1.05);
+}
+
+.logo-text-fallback {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .logo-icon {
@@ -45,6 +65,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-size: 1.5rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .navbar-links {
@@ -101,6 +124,10 @@
 
   .logo-text {
     font-size: 1.2rem;
+  }
+
+  .logo-image {
+    height: 50px;
   }
 }
 

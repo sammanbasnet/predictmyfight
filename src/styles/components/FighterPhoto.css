@@ -1,0 +1,77 @@
+.fighter-photo {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 170, 0, 0.15) 100%);
+  border: 3px solid rgba(255, 215, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.fighter-photo-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd700;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Size variants */
+.fighter-photo-small {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.fighter-photo-small .fighter-photo-initials {
+  font-size: 0.9rem;
+}
+
+.fighter-photo-medium {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+}
+
+.fighter-photo-medium .fighter-photo-initials {
+  font-size: 1.5rem;
+}
+
+.fighter-photo-large {
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  min-height: 120px;
+}
+
+.fighter-photo-large .fighter-photo-initials {
+  font-size: 2.5rem;
+}
+
+.fighter-photo-xlarge {
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
+  min-height: 150px;
+}
+
+.fighter-photo-xlarge .fighter-photo-initials {
+  font-size: 3rem;
+}
+
+/* Hover effects */
+.fighter-photo:hover {
+  border-color: rgba(255, 215, 0, 0.6);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
