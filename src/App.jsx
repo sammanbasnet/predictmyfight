@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import AboutPage from './pages/AboutPage'
 import Footer from './components/Footer'
+import BackgroundImages from './components/BackgroundImages'
 
 /**
  * Main App Component with Routing
@@ -16,6 +17,7 @@ import Footer from './components/Footer'
 function App() {
   return (
     <div className="app">
+      <BackgroundImages />
       <Navbar />
       <div className="app-content">
         <Routes>
