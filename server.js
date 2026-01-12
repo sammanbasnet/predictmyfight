@@ -129,6 +129,296 @@ const KNOWN_FIGHTER_IMAGES = {
   'Brandon Moreno': 'https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2023-07/MORENO_BRANDON_L_07-08-23.png'
 }
 
+// Guaranteed current UFC fighters (always included even if scraping fails)
+const GUARANTEED_CURRENT_FIGHTERS = [
+  { 
+    id: 9000, 
+    name: 'Jon Jones', 
+    weightClass: 'Heavyweight', 
+    wins: 27, 
+    losses: 1, 
+    knockouts: 10, 
+    submissions: 6, 
+    strikingAccuracy: 58, 
+    takedownAccuracy: 34, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9001, 
+    name: 'Islam Makhachev', 
+    weightClass: 'Lightweight', 
+    wins: 25, 
+    losses: 1, 
+    knockouts: 4, 
+    submissions: 10, 
+    strikingAccuracy: 59, 
+    takedownAccuracy: 65, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9002, 
+    name: 'Tom Aspinall', 
+    weightClass: 'Heavyweight', 
+    wins: 14, 
+    losses: 3, 
+    knockouts: 11, 
+    submissions: 2, 
+    strikingAccuracy: 62, 
+    takedownAccuracy: 50, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9003, 
+    name: 'Alex Pereira', 
+    weightClass: 'Light Heavyweight', 
+    wins: 10, 
+    losses: 2, 
+    knockouts: 7, 
+    submissions: 0, 
+    strikingAccuracy: 61, 
+    takedownAccuracy: 25, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9004, 
+    name: 'Dricus Du Plessis', 
+    weightClass: 'Middleweight', 
+    wins: 21, 
+    losses: 2, 
+    knockouts: 9, 
+    submissions: 10, 
+    strikingAccuracy: 52, 
+    takedownAccuracy: 48, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9005, 
+    name: 'Leon Edwards', 
+    weightClass: 'Welterweight', 
+    wins: 23, 
+    losses: 3, 
+    knockouts: 7, 
+    submissions: 3, 
+    strikingAccuracy: 54, 
+    takedownAccuracy: 35, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9006, 
+    name: 'Ilia Topuria', 
+    weightClass: 'Featherweight', 
+    wins: 15, 
+    losses: 0, 
+    knockouts: 5, 
+    submissions: 8, 
+    strikingAccuracy: 56, 
+    takedownAccuracy: 42, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9007, 
+    name: 'Sean O\'Malley', 
+    weightClass: 'Bantamweight', 
+    wins: 18, 
+    losses: 1, 
+    knockouts: 12, 
+    submissions: 1, 
+    strikingAccuracy: 60, 
+    takedownAccuracy: 30, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9008, 
+    name: 'Alexandre Pantoja', 
+    weightClass: 'Flyweight', 
+    wins: 28, 
+    losses: 5, 
+    knockouts: 8, 
+    submissions: 10, 
+    strikingAccuracy: 48, 
+    takedownAccuracy: 52, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9009, 
+    name: 'Khamzat Chimaev', 
+    weightClass: 'Middleweight', 
+    wins: 13, 
+    losses: 0, 
+    knockouts: 6, 
+    submissions: 5, 
+    strikingAccuracy: 57, 
+    takedownAccuracy: 68, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9010, 
+    name: 'Shavkat Rakhmonov', 
+    weightClass: 'Welterweight', 
+    wins: 18, 
+    losses: 0, 
+    knockouts: 8, 
+    submissions: 10, 
+    strikingAccuracy: 55, 
+    takedownAccuracy: 58, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9011, 
+    name: 'Arman Tsarukyan', 
+    weightClass: 'Lightweight', 
+    wins: 22, 
+    losses: 3, 
+    knockouts: 9, 
+    submissions: 5, 
+    strikingAccuracy: 53, 
+    takedownAccuracy: 55, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9012, 
+    name: 'Max Holloway', 
+    weightClass: 'Featherweight', 
+    wins: 26, 
+    losses: 7, 
+    knockouts: 11, 
+    submissions: 2, 
+    strikingAccuracy: 48, 
+    takedownAccuracy: 33, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9013, 
+    name: 'Merab Dvalishvili', 
+    weightClass: 'Bantamweight', 
+    wins: 17, 
+    losses: 4, 
+    knockouts: 3, 
+    submissions: 1, 
+    strikingAccuracy: 44, 
+    takedownAccuracy: 72, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9014, 
+    name: 'Brandon Moreno', 
+    weightClass: 'Flyweight', 
+    wins: 21, 
+    losses: 6, 
+    knockouts: 5, 
+    submissions: 11, 
+    strikingAccuracy: 46, 
+    takedownAccuracy: 50, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9015, 
+    name: 'Jiri Prochazka', 
+    weightClass: 'Light Heavyweight', 
+    wins: 29, 
+    losses: 4, 
+    knockouts: 25, 
+    submissions: 3, 
+    strikingAccuracy: 59, 
+    takedownAccuracy: 40, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9016, 
+    name: 'Robert Whittaker', 
+    weightClass: 'Middleweight', 
+    wins: 25, 
+    losses: 7, 
+    knockouts: 13, 
+    submissions: 5, 
+    strikingAccuracy: 51, 
+    takedownAccuracy: 45, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9017, 
+    name: 'Justin Gaethje', 
+    weightClass: 'Lightweight', 
+    wins: 25, 
+    losses: 4, 
+    knockouts: 20, 
+    submissions: 1, 
+    strikingAccuracy: 60, 
+    takedownAccuracy: 28, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9018, 
+    name: 'Dustin Poirier', 
+    weightClass: 'Lightweight', 
+    wins: 30, 
+    losses: 8, 
+    knockouts: 15, 
+    submissions: 8, 
+    strikingAccuracy: 52, 
+    takedownAccuracy: 38, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9019, 
+    name: 'Curtis Blaydes', 
+    weightClass: 'Heavyweight', 
+    wins: 18, 
+    losses: 4, 
+    knockouts: 12, 
+    submissions: 0, 
+    strikingAccuracy: 52, 
+    takedownAccuracy: 45, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9020, 
+    name: 'Magomed Ankalaev', 
+    weightClass: 'Light Heavyweight', 
+    wins: 19, 
+    losses: 1, 
+    knockouts: 10, 
+    submissions: 0, 
+    strikingAccuracy: 55, 
+    takedownAccuracy: 42, 
+    status: 'Active', 
+    organization: 'UFC'
+  },
+  { 
+    id: 9021, 
+    name: 'Belal Muhammad', 
+    weightClass: 'Welterweight', 
+    wins: 23, 
+    losses: 3, 
+    knockouts: 5, 
+    submissions: 1, 
+    strikingAccuracy: 47, 
+    takedownAccuracy: 58, 
+    status: 'Active', 
+    organization: 'UFC'
+  }
+]
+
 // Legendary fighters
 const LEGENDARY_FIGHTERS = [
   { id: 1000, name: 'Chuck Liddell', weightClass: 'Light Heavyweight', wins: 21, losses: 9, knockouts: 13, submissions: 1, strikingAccuracy: 48, takedownAccuracy: 60, status: 'Legendary', organization: 'UFC' },
@@ -468,9 +758,35 @@ async function getAllFighters() {
     console.log('Using fallback: Legendary + PFL + ONE + Rizin fighters only')
   }
   
-  // Combine all fighters: UFC current + Legendary + PFL + ONE + Rizin
+  // Merge guaranteed current fighters with scraped fighters (avoid duplicates)
+  const guaranteedByName = new Map(GUARANTEED_CURRENT_FIGHTERS.map(f => [f.name.toLowerCase(), f]))
+  const mergedCurrentFighters = currentFighters.map(f => {
+    const key = f.name.toLowerCase()
+    if (guaranteedByName.has(key)) {
+      // Use guaranteed fighter data (has better stats) but keep scraped imageUrl if available
+      const guaranteed = guaranteedByName.get(key)
+      return {
+        ...guaranteed,
+        imageUrl: f.imageUrl || KNOWN_FIGHTER_IMAGES[guaranteed.name] || null
+      }
+    }
+    return f
+  })
+  
+  // Add any guaranteed fighters not found in scraped data
+  const scrapedNames = new Set(currentFighters.map(f => f.name.toLowerCase()))
+  GUARANTEED_CURRENT_FIGHTERS.forEach(f => {
+    if (!scrapedNames.has(f.name.toLowerCase())) {
+      mergedCurrentFighters.push({
+        ...f,
+        imageUrl: KNOWN_FIGHTER_IMAGES[f.name] || null
+      })
+    }
+  })
+  
+  // Combine all fighters: UFC current (merged) + Legendary + PFL + ONE + Rizin
   const allFighters = [
-    ...currentFighters,
+    ...mergedCurrentFighters,
     ...LEGENDARY_FIGHTERS.map(legend => ({
       ...legend,
       imageUrl: KNOWN_FIGHTER_IMAGES[legend.name] || null

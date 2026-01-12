@@ -1,7 +1,20 @@
 .fighter-stats {
   margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 3rem;
+  border-top: 2px solid rgba(210, 10, 10, 0.3);
+  position: relative;
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .stats-header {
@@ -28,20 +41,42 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(20, 20, 20, 0.9) 100%);
-  border-radius: 8px;
-  padding: 1rem;
-  border: 1px solid rgba(51, 51, 51, 0.8);
-  transition: all 0.4s ease;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 2px solid rgba(51, 51, 51, 0.6);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(210, 10, 10, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.stat-card:hover::before {
+  left: 100%;
 }
 
 .stat-card:hover {
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(30, 30, 30, 0.98) 100%);
   border-color: #d20a0a;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(210, 10, 10, 0.3);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 12px 32px rgba(210, 10, 10, 0.4),
+    0 0 30px rgba(210, 10, 10, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .stat-label {
@@ -53,10 +88,15 @@
 }
 
 .stat-value {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #d20a0a;
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #d20a0a 0%, #ff4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(210, 10, 10, 0.5);
+  letter-spacing: 1px;
 }
 
 .stat-detail {

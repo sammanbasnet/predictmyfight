@@ -3,6 +3,7 @@ import './styles/App.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import AboutPage from './pages/AboutPage'
+import Fighters from './pages/Fighters'
 import Footer from './components/Footer'
 import BackgroundImages from './components/BackgroundImages'
 
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/fighters" element={<Fighters />} />
         </Routes>
       </div>
       <Footer />
