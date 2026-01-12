@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import '../styles/components/FighterPhoto.css'
-import { getFighterImageUrl, getFighterInitials, getDirectFighterImageUrl } from '../utils/fighterImages'
+import { getFighterInitials, getDirectFighterImageUrl } from '../utils/fighterImages'
 
 /**
  * FighterPhoto Component
@@ -8,11 +8,12 @@ import { getFighterImageUrl, getFighterInitials, getDirectFighterImageUrl } from
  * 
  * @param {Object} props - Component props
  * @param {string} props.fighterName - Fighter's name
+ * @param {string} props.fighterImageUrl - Optional: Direct image URL from API
  * @param {string} props.size - Size of the photo ('small', 'medium', 'large')
  * @param {string} props.className - Additional CSS classes
  * @returns {JSX.Element} Fighter photo component
  */
-function FighterPhoto({ fighterName, size = 'medium', className = '' }) {
+function FighterPhoto({ fighterName, fighterImageUrl = null, size = 'medium', className = '' }) {
   const [imgLoading, setImgLoading] = useState(true)
   const [imgError, setImgError] = useState(false)
   const [currentImageUrl, setCurrentImageUrl] = useState(null)
@@ -23,14 +24,30 @@ function FighterPhoto({ fighterName, size = 'medium', className = '' }) {
     // Reset state when fighter changes
     setImgLoading(true)
     setImgError(false)
+    setFallbackStage(0)
     
-    // Use DiceBear avatars directly - reliable and always works
-    // Creates professional-looking SVG avatars with fighter initials
-    // Using UFC red color scheme
-    const encodedName = encodeURIComponent(fighterName)
-    const dicebearUrl = `https://api.dicebear.com/7.x/initials/svg?seed=${encodedName}&backgroundColor=1a1a1a&textColor=ffffff&fontSize=40&fontWeight=700&radius=50`
-    setCurrentImageUrl(dicebearUrl)
-  }, [fighterName])
+    // Priority order:
+    // 1. Image URL from API (scraped from ufcstats.com)
+    // 2. Known UFC CDN URL (via proxy)
+    // 3. DiceBear avatar
+    
+    if (fighterImageUrl) {
+      // Use image from API through proxy
+      setCurrentImageUrl(`/api/fighter-image?url=${encodeURIComponent(fighterImageUrl)}`)
+    } else {
+      const knownImageUrl = getDirectFighterImageUrl(fighterName)
+      if (knownImageUrl) {
+        // Use known UFC CDN image through proxy
+        setCurrentImageUrl(`/api/fighter-image?url=${encodeURIComponent(knownImageUrl)}`)
+      } else {
+        // Fallback to DiceBear avatar
+        const encodedName = encodeURIComponent(fighterName)
+        const dicebearUrl = `https://api.dicebear.com/7.x/initials/svg?seed=${encodedName}&backgroundColor=1a1a1a&textColor=ffffff&fontSize=40&fontWeight=700&radius=50`
+        setCurrentImageUrl(dicebearUrl)
+        setFallbackStage(1)
+      }
+    }
+  }, [fighterName, fighterImageUrl])
 
   const handleImageLoad = () => {
     setImgLoading(false)
@@ -38,9 +55,18 @@ function FighterPhoto({ fighterName, size = 'medium', className = '' }) {
   }
 
   const handleImageError = () => {
-    // DiceBear failed (very unlikely), show text initials
-    setImgError(true)
-    setImgLoading(false)
+    // If we tried a real image and it failed, fall back to DiceBear
+    if (fallbackStage === 0) {
+      const encodedName = encodeURIComponent(fighterName)
+      const dicebearUrl = `https://api.dicebear.com/7.x/initials/svg?seed=${encodedName}&backgroundColor=1a1a1a&textColor=ffffff&fontSize=40&fontWeight=700&radius=50`
+      setCurrentImageUrl(dicebearUrl)
+      setFallbackStage(1)
+      setImgLoading(true)
+    } else {
+      // DiceBear failed (very unlikely), show text initials
+      setImgError(true)
+      setImgLoading(false)
+    }
   }
 
   return (

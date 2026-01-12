@@ -84,7 +84,9 @@
   border-radius: 8px;
   z-index: 10000;
   max-height: 400px;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
 }
@@ -146,8 +148,11 @@
 }
 
 .fighter-list {
-  max-height: 300px;
+  flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .fighter-option {
@@ -199,19 +204,27 @@
 
 /* Scrollbar styling */
 .fighter-list::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 .fighter-list::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 }
 
 .fighter-list::-webkit-scrollbar-thumb {
-  background: rgba(210, 10, 10, 0.5);
-  border-radius: 4px;
+  background: rgba(210, 10, 10, 0.6);
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .fighter-list::-webkit-scrollbar-thumb:hover {
-  background: #d20a0a;
+  background: rgba(210, 10, 10, 0.8);
+}
+
+/* Firefox scrollbar */
+.fighter-list {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(210, 10, 10, 0.6) rgba(0, 0, 0, 0.3);
 }
 

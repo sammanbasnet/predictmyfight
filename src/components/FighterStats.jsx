@@ -9,7 +9,7 @@ function FighterStats({ fighter }) {
   return (
     <div className="fighter-stats">
       <div className="stats-header">
-        <FighterPhoto fighterName={fighter.name} size="large" />
+        <FighterPhoto fighterName={fighter.name} fighterImageUrl={fighter.imageUrl} size="large" />
         <h3>{fighter.name}</h3>
       </div>
 

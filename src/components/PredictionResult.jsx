@@ -14,7 +14,7 @@ function PredictionResult({ prediction, fighter1, fighter2 }) {
       
       <div className="prediction-content">
         <div className="probability-card">
-          <FighterPhoto fighterName={prediction.fighter1.name} size="xlarge" className="prediction-photo" />
+          <FighterPhoto fighterName={prediction.fighter1.name} fighterImageUrl={fighter1?.imageUrl} size="xlarge" className="prediction-photo" />
           <div className="fighter-name-large">{prediction.fighter1.name}</div>
           <div className="probability-value">{fighter1Prob}%</div>
           <div className="probability-bar-container">
@@ -28,7 +28,7 @@ function PredictionResult({ prediction, fighter1, fighter2 }) {
         <div className="vs-divider-small">VS</div>
 
         <div className="probability-card">
-          <FighterPhoto fighterName={prediction.fighter2.name} size="xlarge" className="prediction-photo" />
+          <FighterPhoto fighterName={prediction.fighter2.name} fighterImageUrl={fighter2?.imageUrl} size="xlarge" className="prediction-photo" />
           <div className="fighter-name-large">{prediction.fighter2.name}</div>
           <div className="probability-value">{fighter2Prob}%</div>
           <div className="probability-bar-container">
