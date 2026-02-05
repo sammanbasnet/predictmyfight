@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import '../styles/pages/Fighters.css'
 import FighterStats from '../components/FighterStats'
 import FighterPhoto from '../components/FighterPhoto'
+import FighterAnalysisChart from '../components/FighterAnalysisChart'
 
 /**
  * Fighters Page Component
@@ -206,6 +207,8 @@ function Fighters() {
             </div>
 
             <FighterStats fighter={selectedFighter} />
+            
+            <FighterAnalysisChart fighter={selectedFighter} />
           </div>
         )}
 

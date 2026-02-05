@@ -1,0 +1,33 @@
+id,name,weightClass,wins,losses,knockouts,submissions,strikingAccuracy,takedownAccuracy
+1,Jon Jones,Heavyweight,27,1,10,6,58,34
+2,Tom Aspinall,Heavyweight,14,3,11,2,62,50
+3,Curtis Blaydes,Heavyweight,18,4,12,0,52,45
+4,Sergei Pavlovich,Heavyweight,18,2,15,0,55,0
+5,Alex Pereira,Light Heavyweight,10,2,7,0,61,0
+6,Jamahal Hill,Light Heavyweight,12,1,7,0,54,25
+7,Jiri Prochazka,Light Heavyweight,29,4,25,3,59,40
+8,Magomed Ankalaev,Light Heavyweight,18,1,10,0,57,38
+9,Israel Adesanya,Middleweight,24,3,16,0,50,80
+10,Dricus Du Plessis,Middleweight,21,2,9,10,49,42
+11,Sean Strickland,Middleweight,28,6,11,4,42,65
+12,Robert Whittaker,Middleweight,25,7,9,5,44,38
+13,Leon Edwards,Welterweight,22,3,7,3,49,70
+14,Kamaru Usman,Welterweight,20,4,9,1,52,45
+15,Shavkat Rakhmonov,Welterweight,18,0,8,10,48,50
+16,Belal Muhammad,Welterweight,23,3,5,1,41,33
+17,Islam Makhachev,Lightweight,25,1,5,11,59,65
+18,Charles Oliveira,Lightweight,34,9,9,20,53,35
+19,Justin Gaethje,Lightweight,25,4,20,1,60,0
+20,Arman Tsarukyan,Lightweight,21,3,9,5,51,48
+21,Alexander Volkanovski,Featherweight,26,3,13,3,57,34
+22,Ilia Topuria,Featherweight,15,0,5,8,49,42
+23,Max Holloway,Featherweight,26,7,11,2,48,83
+24,Yair Rodriguez,Featherweight,16,4,11,3,50,50
+25,Sean O'Malley,Bantamweight,18,1,12,1,61,0
+26,Merab Dvalishvili,Bantamweight,17,4,3,1,38,48
+27,Aljamain Sterling,Bantamweight,23,4,3,8,42,40
+28,Cory Sandhagen,Bantamweight,17,4,7,3,52,25
+29,Alexandre Pantoja,Flyweight,27,5,8,10,47,35
+30,Brandon Royval,Flyweight,15,6,4,9,43,28
+31,Brandon Moreno,Flyweight,21,7,5,11,45,32
+32,Amir Albazi,Flyweight,17,1,5,4,44,38
